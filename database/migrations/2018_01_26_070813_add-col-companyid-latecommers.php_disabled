@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddColCompanyidLatecommers extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('latecommers', function (Blueprint $table) {
+        $table->integer('company_id');
+         $table->dropColumn('date');        
+
+     });   
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+         Schema::table('latecommers', function($table) {
+         $table->dropColumn('company_id');
+          $table->string('date');
+
+        
+
+});    
+    }
+}
